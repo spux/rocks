@@ -12,7 +12,7 @@ function displayImage (uri) {
 }
 
 function displayRandomImage () {
-  let random = Math.floor(Math.random() * (di[id].length - 1)) + 1
+  let random = Math.floor(Math.random() * di[id].length)
   let randomImage = di[id][random]
   displayImage(randomImage)
 }
