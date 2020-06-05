@@ -6,7 +6,7 @@ function displayImage (uri) {
   var i = window.document.createElement('img')
   i.src = uri
   i.onclick = displayRandomImage
-  i.width = Math.floor(screen.width * 0.8)
+  i.width = Math.floor(screen.height * 0.95)
   window.document.body.innerHTML = ''
   window.document.body.appendChild(i)
 }
