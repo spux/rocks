@@ -1,6 +1,7 @@
 import 'https://unpkg.com/dataisland?module'
 
 var id = 'data'
+var arr = di[id]
 
 function displayImage (uri) {
   var i = window.document.createElement('img')
@@ -11,10 +12,10 @@ function displayImage (uri) {
   window.document.body.appendChild(i)
 }
 
-function displayRandomImage () {
-  let random = Math.floor(Math.random() * di[id].length)
-  let randomImage = di[id][random]
+function displayRandomImage (images) {
+  let random = Math.floor(Math.random() * images.length)
+  let randomImage = images[random]
   displayImage(randomImage)
 }
 
-displayRandomImage()
+displayRandomImage(arr)
