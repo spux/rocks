@@ -3,7 +3,7 @@ import 'https://unpkg.com/dataisland?module'
 var arr
 var id = 'data'
 
-if (di[id].link) {
+if (di[id].links) {
   arr = di[id].links.filter(i => i).map(i => i.href)
 } else {
   arr = di[id]
