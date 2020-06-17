@@ -1,26 +1,8 @@
 import 'https://unpkg.com/dataisland?module'
-import { exec, init } from 'https://unpkg.com/spux-modules@0.0.3/pell.js'
-var id = 'data'
+import { exec, init } from 'https://unpkg.com/spux-modules@0.0.4/pell.js'
+import updateThis from 'https://unpkg.com/spux-modules@0.0.4/updatethis.js'
 
-function updateThis (id) {
-  fetch(location.href).then(response =>
-    response.text().then(html => {
-      var newhtml = html.replace(
-        /(<script[^>]*type="application[^>]*>)([\s\S]*?)(<\/script>)/gim,
-        '$1' + JSON.stringify(di[id], null, 2) + '$3'
-      )
-      if (newhtml !== html) {
-        fetch(location.href, {
-          method: 'PUT',
-          body: newhtml,
-          headers: {
-            'content-type': 'text/html'
-          }
-        }).then(console.log)
-      }
-    })
-  )
-}
+var id = 'data'
 
 // Initialize pell on an HTMLElement
 var editor = init({
@@ -85,7 +67,7 @@ var editor = init({
       title: 'Save',
       result: () => {
         console.log('Save!')
-        updateThis('data')
+        updateThis(id)
       }
     }
   ],
