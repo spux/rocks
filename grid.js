@@ -7,7 +7,7 @@ document.head.insertAdjacentHTML(
   `<link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" />`
 )
 
-document.body.insertAdjacentHTML('beforeend', `<div class="wrapper"></div>`)
+document.body.insertAdjacentHTML('beforeend', `<div id="wrapper"></div>`)
 
 var columns = Object.keys([].concat(di.data)[0])
 var values = [].concat(di.data).map(Object.values)
