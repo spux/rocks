@@ -13,18 +13,16 @@
     "type": "git",
     "url": "git+https://github.com/spux/rocks.git"
   },
-  "keywords": [
-    "spux"
-  ],
+  "keywords": ["spux"],
   "author": "Melvin Carvalho",
   "bugs": {
     "url": "https://github.com/spux/rocks/issues"
   },
   "exports": {
     ".": "./editor.js",
-    "gallery.js": "gallery.js",
-    "editor.js": "editor.js",
-    "grid.js": "grid.js"
+    "gallery.js": "./gallery.js",
+    "editor.js": "./editor.js",
+    "grid.js": "./grid.js"
   },
   "homepage": "https://github.com/spux/rocks#readme"
 }
