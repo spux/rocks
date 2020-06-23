@@ -1,0 +1,24 @@
+{
+  "name": "spux-rocks",
+  "version": "0.0.1",
+  "description": "spux rocks",
+  "main": "editor.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spux/rocks.git"
+  },
+  "keywords": [
+    "spux"
+  ],
+  "author": "Melvin Carvalho",
+  "bugs": {
+    "url": "https://github.com/spux/rocks/issues"
+  },
+  "homepage": "https://github.com/spux/rocks#readme"
+}
