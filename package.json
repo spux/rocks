@@ -1,6 +1,6 @@
 {
   "name": "spux-rocks",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "spux rocks",
   "main": "editor.js",
   "directories": {
@@ -13,12 +13,13 @@
     "type": "git",
     "url": "git+https://github.com/spux/rocks.git"
   },
-  "keywords": ["spux"],
+  "keywords": [
+    "spux"
+  ],
   "author": "Melvin Carvalho",
   "bugs": {
     "url": "https://github.com/spux/rocks/issues"
   },
-
   "exports": {
     ".": "./editor.js",
     "gallery.js": "gallery.js",
