@@ -1,6 +1,6 @@
 {
   "name": "spux-rocks",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "spux rocks",
   "main": "editor.js",
   "directories": {
@@ -13,7 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/spux/rocks.git"
   },
-  "keywords": ["spux"],
+  "keywords": [
+    "spux"
+  ],
   "author": "Melvin Carvalho <melvincarvalho@gmail.com> (https://melvincarvalho.com/#me)",
   "bugs": {
     "url": "https://github.com/spux/rocks/issues"
