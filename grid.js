@@ -2,6 +2,8 @@ import 'https://jspm.dev/dior'
 
 import Grid from 'https://jspm.dev/gridjs'
 
+document.getElementsByTagName('body')[0].setAttribute('id', 'wrapper')
+
 var columns = Object.keys([].concat(di.data)[0])
 var values = [].concat(di.data).map(Object.values)
 
