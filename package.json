@@ -1,6 +1,6 @@
 {
   "name": "spux-rocks",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "spux rocks",
   "main": "editor.js",
   "directories": {
