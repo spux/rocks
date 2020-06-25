@@ -2,24 +2,12 @@ import 'https://jspm.dev/dior'
 import { h, html, render, Component } from 'https://unpkg.com/spux?module'
 import Plyr from 'https://jspm.dev/plyr'
 
-globalThis.qs = Object.fromEntries(
-  new URLSearchParams(document.location.search)
-)
-
 globalThis.defaults = {
   provider: 'youtube',
   embedid: 'm3jNb7IdJHQ'
 }
 
-var provider, embedid
-
-if (di && di.data) {
-  provider = di.data.provider
-  embedid = di.data.embedid
-}
-
-provider = qs.provider || provider || defaults.provider
-embedid = qs.embedid || embedid || defaults.embedid
+globalThis.spux = { ...defaults, ...di.data, ...qs }
 
 document.head.insertAdjacentHTML(
   'beforeend',
@@ -31,8 +19,8 @@ render(
     <div class="container">
       <div
         id="player"
-        data-plyr-provider="${provider}"
-        data-plyr-embed-id="${embedid}"
+        data-plyr-provider="${spux.provider}"
+        data-plyr-embed-id="${spux.embedid}"
       ></div>
     </div>
   `,
