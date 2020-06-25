@@ -4,7 +4,8 @@ import Plyr from 'https://jspm.dev/plyr'
 
 globalThis.defaults = {
   provider: 'youtube',
-  embedid: 'm3jNb7IdJHQ'
+  embedid: 'm3jNb7IdJHQ',
+  currentTime: 0
 }
 
 globalThis.spux = { ...defaults, ...di.data, ...qs }
@@ -27,4 +28,5 @@ render(
   document.body
 )
 
-new Plyr('#player', {})
+globalThis.player = new Plyr('#player', {})
+globalThis.player.currentTime = spux.currentTime
