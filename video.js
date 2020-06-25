@@ -1,4 +1,4 @@
-import 'https://jspm.dev/dior'
+import 'https://unpkg.com/dior'
 import { h, html, render, Component } from 'https://unpkg.com/spux?module'
 import Plyr from 'https://jspm.dev/plyr'
 
