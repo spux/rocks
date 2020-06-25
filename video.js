@@ -29,4 +29,8 @@ render(
 )
 
 globalThis.player = new Plyr('#player', {})
-globalThis.player.currentTime = spux.currentTime
+console.log(spux)
+
+globalThis.player.on('ready', event => {
+  globalThis.player.currentTime = parseInt(spux.currentTime)
+})
