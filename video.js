@@ -5,6 +5,7 @@ import Plyr from 'https://jspm.dev/plyr'
 globalThis.defaults = {
   provider: 'youtube',
   embedid: 'm3jNb7IdJHQ',
+  t: 0,
   currentTime: 0
 }
 
@@ -32,5 +33,5 @@ globalThis.player = new Plyr('#player', {})
 console.log(spux)
 
 globalThis.player.on('ready', event => {
-  globalThis.player.currentTime = parseInt(spux.currentTime)
+  globalThis.player.currentTime = parseInt(spux.currentTime || parseInt(spux.t))
 })
