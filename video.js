@@ -18,13 +18,11 @@ document.head.insertAdjacentHTML(
 
 render(
   html`
-    <div class="container">
       <div
         id="player"
         data-plyr-provider="${spux.provider}"
         data-plyr-embed-id="${spux.embedid}"
-      ></div>
-    </div>
+        </div>
   `,
   document.body
 )
