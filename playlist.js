@@ -67,6 +67,7 @@ class App extends Component {
       type: 'video',
       sources: sources
     }
+    globalThis.player.currentTime = mo.startTime
   }
 
   render () {
