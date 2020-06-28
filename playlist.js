@@ -5,6 +5,8 @@ import Plyr from 'https://jspm.dev/plyr'
 import MediaObject from 'https://unpkg.com/spux-components/MediaObject.js'
 import updateThis from 'https://unpkg.com/spux-modules@0.0.4/updatethis.js'
 
+var id = data
+
 // defaults
 globalThis.defaults = {
   '@id': '',
@@ -31,7 +33,7 @@ document.head.insertAdjacentHTML(
 )
 
 function getThingsByType (type) {
-  return di.data.filter(i => {
+  return di[id].filter(i => {
     return i.type === type || i['@type'] === type
   })
 }
@@ -45,11 +47,11 @@ class App extends Component {
   handleChange (e) {
     let item = e.target.getAttribute('item')
     console.log('item', item)
-    di.data[0].currentTrack = item
+    di[id][0].currentTrack = item
     let mo = getThingsByType('MediaObject').find(i => i['@id'] === item)
     console.log('mo', mo)
 
-    // let mo = di.data[item]
+    // let mo = di[id][item]
     spux.contentUrl = mo.contentUrl
     let sources = []
 
@@ -108,11 +110,11 @@ globalThis.player.on('ready', event => {
   function saveOnPause () {
     player.on('pause', e => {
       console.log('setting startTime', e)
-      di.data.find(
-        i => di.data[1].currentTrack === i['@id']
+      di[id].find(
+        i => di[id][1].currentTrack === i['@id']
       ).startTime = Math.floor(player.currentTime)
       document.getElementById('data').innerText = JSON.stringify(
-        di.data,
+        di[id],
         null,
         2
       )
