@@ -5,7 +5,7 @@ import Plyr from 'https://jspm.dev/plyr'
 import MediaObject from 'https://unpkg.com/spux-components/MediaObject.js'
 import updateThis from 'https://unpkg.com/spux-modules@0.0.4/updatethis.js'
 
-var id = data
+var id = 'data'
 
 // defaults
 globalThis.defaults = {
