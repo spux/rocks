@@ -118,7 +118,7 @@ globalThis.player.on('ready', event => {
         null,
         2
       )
-      updateThis()
+      updateThis(id)
     })
   }
 
