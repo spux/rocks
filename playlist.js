@@ -103,9 +103,11 @@ render(h(App), document.body)
 globalThis.player = new Plyr('#player', {})
 
 globalThis.player.on('ready', event => {
-  var start =
-    parseInt(spux.currentTime) || parseInt(spux.t) || parseInt(spux.startTime)
-  globalThis.player.currentTime = start
+  function setStart () {
+    var start =
+      parseInt(spux.currentTime) || parseInt(spux.t) || parseInt(spux.startTime)
+    globalThis.player.currentTime = start
+  }
 
   function saveOnPause () {
     player.on('pause', e => {
@@ -122,5 +124,8 @@ globalThis.player.on('ready', event => {
     })
   }
 
+  setStart()
+
   setTimeout(saveOnPause, 2000)
+  setTimeout(setStart(), 2000)
 })
