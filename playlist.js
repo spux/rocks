@@ -47,7 +47,7 @@ class App extends Component {
   handleChange (e) {
     let item = e.target.getAttribute('item')
     console.log('item', item)
-    di[id][0].currentTrack = item
+    di[id][1].currentTrack = item
     let mo = getThingsByType('MediaObject').find(i => i['@id'] === item)
     console.log('mo', mo)
 
