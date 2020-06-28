@@ -111,6 +111,11 @@ globalThis.player.on('ready', event => {
       di.data.find(
         i => di.data[1].currentTrack === i['@id']
       ).startTime = Math.floor(player.currentTime)
+      document.getElementById('data').innerText = JSON.stringify(
+        di.data,
+        null,
+        2
+      )
       updateThis()
     })
   }
