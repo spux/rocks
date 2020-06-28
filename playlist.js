@@ -3,6 +3,7 @@ import 'https://unpkg.com/dior'
 import { h, html, render, Component } from 'https://unpkg.com/spux?module'
 import Plyr from 'https://jspm.dev/plyr'
 import MediaObject from 'https://unpkg.com/spux-components/MediaObject.js'
+import updateThis from 'https://unpkg.com/spux-modules@0.0.4/updatethis.js'
 
 // defaults
 globalThis.defaults = {
@@ -44,7 +45,8 @@ class App extends Component {
   handleChange (e) {
     let item = e.target.getAttribute('item')
     console.log('item', item)
-    let mo = getThingsByType('MediaObject').filter(i => i['@id'] === item)[0]
+    di.data[0].currentTrack = item
+    let mo = getThingsByType('MediaObject').find(i => i['@id'] === item)
     console.log('mo', mo)
 
     // let mo = di.data[item]
@@ -102,4 +104,16 @@ globalThis.player.on('ready', event => {
   var start =
     parseInt(spux.currentTime) || parseInt(spux.t) || parseInt(spux.startTime)
   globalThis.player.currentTime = start
+
+  function saveOnPause () {
+    player.on('pause', e => {
+      console.log('setting startTime', e)
+      di.data.find(
+        i => di.data[1].currentTrack === i['@id']
+      ).startTime = Math.floor(player.currentTime)
+      updateThis()
+    })
+  }
+
+  setTimeout(saveOnPause, 2000)
 })
