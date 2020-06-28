@@ -69,8 +69,10 @@ class App extends Component {
     }
     globalThis.player.currentTime = mo.startTime
     setTimeout(() => {
+      console.log('setting time to', mo.startTime)
       globalThis.player.currentTime = mo.startTime
-    }, 2000)
+      console.log('currentTime', globalThis.player.currentTime)
+    }, 1000)
   }
 
   render () {
@@ -108,8 +110,8 @@ globalThis.player = new Plyr('#player', {})
 
 globalThis.player.on('ready', event => {
   function setStart () {
-    var start =
-      parseInt(spux.currentTime) || parseInt(spux.t) || parseInt(spux.startTime)
+    var start = di[id].find(i => di[id][1].currentTrack === i['@id']).startTime
+    console.log('setStart', start)
     globalThis.player.currentTime = start
   }
 
