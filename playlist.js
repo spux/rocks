@@ -16,7 +16,7 @@ globalThis.defaults = {
 // init
 globalThis.spux = {
   ...defaults,
-  ...getThingsByType('MediaObject')[0],
+  ...di[id].find(i => di[id][1].currentTrack === i['@id']),
   ...qs
 }
 
