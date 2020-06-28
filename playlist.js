@@ -68,6 +68,9 @@ class App extends Component {
       sources: sources
     }
     globalThis.player.currentTime = mo.startTime
+    setTimeout(() => {
+      globalThis.player.currentTime = mo.startTime
+    }, 2000)
   }
 
   render () {
