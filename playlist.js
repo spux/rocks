@@ -2,17 +2,20 @@
 import 'https://unpkg.com/dior'
 import { h, html, render, Component } from 'https://unpkg.com/spux?module'
 import Plyr from 'https://jspm.dev/plyr'
+import MediaObject from 'https://unpkg.com/spux-components/MediaObject.js'
 
 // defaults
 globalThis.defaults = {
-  '@id': '#1',
-  '@type': 'MediaObject',
-  contentUrl: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
-  startTime: 0
+  '@id': '',
+  currentTrack: '#1'
 }
 
 // init
-globalThis.spux = { ...defaults, ...di.data[0], ...qs }
+globalThis.spux = {
+  ...defaults,
+  ...getThingsByType('MediaObject')[0],
+  ...qs
+}
 
 // render
 document.head.insertAdjacentHTML(
@@ -26,34 +29,10 @@ document.head.insertAdjacentHTML(
   `<link rel="stylesheet" href="https://spux.org/css/spux.css" />`
 )
 
-const MediaObject = props => {
-  if (props.contentUrl.includes('youtube.com')) {
-    return html`
-      <div class="container">
-        <div
-          id="player"
-          data-plyr-provider="youtube"
-          data-plyr-embed-id="${props.contentUrl}"
-        ></div>
-      </div>
-    `
-  } else if (props.contentUrl.includes('vimeo.com')) {
-    return html`
-      <div class="container">
-        <div
-          id="player"
-          data-plyr-provider="vimeo"
-          data-plyr-embed-id="${props.contentUrl}"
-        ></div>
-      </div>
-    `
-  } else {
-    return html`
-      <video id="player" playsinline controls>
-        <source src="${props.contentUrl}" type="video/mp4" />
-      </video>
-    `
-  }
+function getThingsByType (type) {
+  return di.data.filter(i => {
+    return i.type === type || i['@type'] === type
+  })
 }
 
 class App extends Component {
@@ -64,8 +43,11 @@ class App extends Component {
 
   handleChange (e) {
     let item = e.target.getAttribute('item')
-    let mo = di.data[item]
-    console.log(mo)
+    console.log('item', item)
+    let mo = getThingsByType('MediaObject').filter(i => i['@id'] === item)[0]
+    console.log('mo', mo)
+
+    // let mo = di.data[item]
     spux.contentUrl = mo.contentUrl
     let sources = []
 
@@ -90,11 +72,11 @@ class App extends Component {
       <div class="row" id="playlist">
         <div class="col 1 vc">
           <div class="row"></div>
-          ${di.data.map((i, j) => {
+          ${getThingsByType('MediaObject').map((i, j) => {
             return html`
               <div
                 key="${j}"
-                item="${j}"
+                item="${i['@id']}"
                 onClick=${this.handleChange}
                 class="row btn"
               >
