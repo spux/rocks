@@ -134,4 +134,5 @@ globalThis.player.on('ready', event => {
 
   setTimeout(saveOnPause, 2000)
   setTimeout(setStart, 2000)
+  setTimeout(setStart, 5000)
 })
