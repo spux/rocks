@@ -11,7 +11,7 @@ const editStyle =
   'font-family: monospace; font-size: 100%; min-width:60em; margin: 1em 0.2em 1em 0.2em; padding: 1em; border: 0.1em solid #888; border-radius: 0.5em;'
 
 function save () {
-  di[id] = document.getElementById('source').value
+  di[id] = JSON.parse(document.getElementById('source').value)
   console.log(di[id])
 
   updateThis(id)
