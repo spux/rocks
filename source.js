@@ -1,5 +1,6 @@
 import 'https://unpkg.com/dataisland?module'
 import { h, html, render } from 'https://unpkg.com/spux?module'
+import updateThis from 'https://unpkg.com/spux-modules@0.0.4/updatethis.js'
 
 var arr
 var id = 'data'
@@ -10,7 +11,8 @@ const editStyle =
   'font-family: monospace; font-size: 100%; min-width:60em; margin: 1em 0.2em 1em 0.2em; padding: 1em; border: 0.1em solid #888; border-radius: 0.5em;'
 
 function save () {
-  alert('save not yet implemented')
+  updateThis(id)
+  //   alert('save not yet implemented')
 }
 
 render(
