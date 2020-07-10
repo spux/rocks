@@ -4,7 +4,7 @@ import { h, html, render } from 'https://unpkg.com/spux?module'
 var arr
 var id = 'data'
 var desc = JSON.stringify(di[id], null, 2)
-var rows = desc ? desc.split('\n').length : 2
+var rows = desc ? desc.split('\n').length + 1 : 2
 var cols = 80
 
 render(
