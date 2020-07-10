@@ -6,12 +6,14 @@ var arr
 var id = 'data'
 
 const Node = props => {
+  var children = props.node.node ? [].concat(props.node.node) : []
+  console.log('TEXT', props.node.TEXT)
+  console.log('children', children)
   return html`
     <ul>
       <li>${props.node.TEXT}</li>
-
       <ul>
-        ${props.node?.node?.map(i => {
+        ${children.map(i => {
           return html`
             <${Node} node=${i} />
           `
