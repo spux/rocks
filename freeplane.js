@@ -1,6 +1,7 @@
 import 'https://unpkg.com/dataisland?module'
 import { h, html, render } from 'https://unpkg.com/spux?module'
 import updateThis from 'https://unpkg.com/spux-modules@0.0.4/updatethis.js'
+import Navbar from 'https://unpkg.com/spux-components/Navbar.js'
 
 var arr
 var id = 'data'
@@ -8,6 +9,11 @@ var id = 'data'
 document.head.insertAdjacentHTML(
   'beforeend',
   `<link rel="stylesheet" href="https://unpkg.com/spux-rocks/freeplane.css" />`
+)
+
+document.head.insertAdjacentHTML(
+  'beforeend',
+  `<link rel="stylesheet" href="https://unpkg.com/spux-components/css/spux.css" />`
 )
 
 const NodeText = props => {
@@ -48,6 +54,7 @@ const Node = props => {
 
 render(
   html`
+    <${Navbar} title="${di.data.map.TEXT}" />
     <div id="myUL"><${Node} node=${di.data.map.node} /></div>
   `,
   document.body
