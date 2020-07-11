@@ -9,11 +9,11 @@ const NodeText = props => {
   if (props.node.LINK) {
     var weblink = props.node.LINK.replace(/\.[^.]+$/, '.html')
     return html`
-      <a href="${weblink}">${props.node.TEXT}</a>
+      <span class="caret"><a href="${weblink}">${props.node.TEXT}</a></span>
     `
   } else {
     return html`
-      ${props.node.TEXT}
+      <span class="caret">${props.node.TEXT}</span>
     `
   }
 }
@@ -23,7 +23,7 @@ const Node = props => {
   console.log('TEXT', props.node.TEXT)
   console.log('children', children)
   return html`
-    <ul>
+    <ul class="active">
       <li>
         <${NodeText} node="${props.node}" />
       </li>
@@ -40,7 +40,7 @@ const Node = props => {
 
 render(
   html`
-    <div><${Node} node=${di.data.map.node} /></div>
+    <div id="myUL"><${Node} node=${di.data.map.node} /></div>
   `,
   document.body
 )
