@@ -6,6 +6,9 @@ import Navbar from 'https://unpkg.com/spux-components/Navbar.js'
 var arr
 var id = 'data'
 
+globalThis.defaults = globalThis.defaults || {}
+globalThis.defaults._target = globalThis.defaults._target || document.body
+
 document.head.insertAdjacentHTML(
   'beforeend',
   `<link rel="stylesheet" href="https://unpkg.com/spux-rocks/freeplane.css" />`
@@ -59,5 +62,5 @@ render(
     <${Navbar} title="${di.data.map.node.TEXT}" />
     <div id="myUL"><${Node} node=${di.data.map.node} /></div>
   `,
-  document.body
+  globalThis.defaults._target
 )
