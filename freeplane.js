@@ -54,7 +54,7 @@ const Node = props => {
 
 render(
   html`
-    <${Navbar} title="${di.data.map.TEXT}" />
+    <${Navbar} title="${di.data.map.node.TEXT}" />
     <div id="myUL"><${Node} node=${di.data.map.node} /></div>
   `,
   document.body
