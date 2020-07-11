@@ -7,8 +7,9 @@ var id = 'data'
 
 const NodeText = props => {
   if (props.node.LINK) {
+    var weblink = props.node.LINK.replace(/\.[^.]+$/, '.html')
     return html`
-      <a href="${props.node.LINK}">${props.node.TEXT}</a>
+      <a href="${weblink}">${props.node.TEXT}</a>
     `
   } else {
     return html`
