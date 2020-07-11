@@ -16,6 +16,8 @@ globalThis.defaults._target = globalThis.defaults._target || document.body
 // init
 globalThis.spux = { ...defaults, ...di.data, ...qs }
 
+console.log('target', defaults._target)
+
 // render
 document.head.insertAdjacentHTML(
   'beforeend',
@@ -55,7 +57,7 @@ if (spux.contentUrl.includes('youtube.com')) {
         <source src="${spux.contentUrl || spux.src}" type="video/mp4" />
       </video>
     `,
-    document.body
+    defaults._target
   )
 }
 
