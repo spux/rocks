@@ -9,23 +9,26 @@ const NodeText = props => {
   if (props.node.LINK) {
     var weblink = props.node.LINK.replace(/\.[^.]+$/, '.html')
     return html`
-      <span class="caret"><a href="${weblink}">${props.node.TEXT}</a></span>
+      <span class="${props.caret ? 'caret' : ''}"
+        ><a href="${weblink}">${props.node.TEXT}</a></span
+      >
     `
   } else {
     return html`
-      <span class="caret">${props.node.TEXT}</span>
+      <span class="${props.caret ? 'caret' : ''}">${props.node.TEXT}</span>
     `
   }
 }
 
 const Node = props => {
   var children = props.node.node ? [].concat(props.node.node) : []
+  var caret = !!children.length
   console.log('TEXT', props.node.TEXT)
   console.log('children', children)
   return html`
     <ul class="active">
       <li>
-        <${NodeText} node="${props.node}" />
+        <${NodeText} caret=${caret} node="${props.node}" />
       </li>
       <ul>
         ${children.map(i => {
