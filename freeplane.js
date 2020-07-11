@@ -5,6 +5,11 @@ import updateThis from 'https://unpkg.com/spux-modules@0.0.4/updatethis.js'
 var arr
 var id = 'data'
 
+document.head.insertAdjacentHTML(
+  'beforeend',
+  `<link rel="stylesheet" href="https://unpkg.com/spux-rocks/freeplane.css" />`
+)
+
 const NodeText = props => {
   if (props.node.LINK) {
     var weblink = props.node.LINK.replace(/\.[^.]+$/, '.html')
