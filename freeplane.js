@@ -12,7 +12,7 @@ document.head.insertAdjacentHTML(
 
 const NodeText = props => {
   if (props.node.LINK) {
-    var weblink = props.node.LINK.replace(/\.[^.]+$/, '.html')
+    var weblink = props.node.LINK.replace(/\.mm$/, '.html')
     return html`
       <span class="${props.caret ? 'caret' : ''}"
         ><a href="${weblink}">${props.node.TEXT}</a></span
