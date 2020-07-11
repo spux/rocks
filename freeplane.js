@@ -21,10 +21,7 @@ const NodeText = props => {
     var weblink = props.node.LINK.replace(/\.mm$/, '.html')
     return html`
       <span class="${props.caret ? 'caret' : ''}"
-        ><a
-          style="color: #3B5998; font-weight: bold"
-          target="_blank"
-          href="${weblink}"
+        ><a style="color: #3B5998; font-weight: bold" href="${weblink}"
           >➥ ${props.node.TEXT}</a
         ></span
       >
