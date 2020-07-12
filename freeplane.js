@@ -4,7 +4,7 @@ import updateThis from 'https://unpkg.com/spux-modules@0.0.4/updatethis.js'
 import Navbar from 'https://unpkg.com/spux-components/Navbar.js'
 import MediaObject from 'https://unpkg.com/spux-components/MediaObject.js'
 import Plyr from 'https://jspm.dev/plyr'
-import handleMutation from './js/handlemutation.js'
+import handleMutation from 'https://unpkg.com/spux-modules/handlemutation.js'
 import refreshThis from 'https://unpkg.com/spux-modules/refreshthis.js'
 
 globalThis.refreshThis = refreshThis
