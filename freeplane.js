@@ -1,9 +1,13 @@
 import 'https://unpkg.com/dataisland?module'
-import { h, html, render } from 'https://unpkg.com/spux?module'
+import { h, html, render, Component } from 'https://unpkg.com/spux?module'
 import updateThis from 'https://unpkg.com/spux-modules@0.0.4/updatethis.js'
 import Navbar from 'https://unpkg.com/spux-components/Navbar.js'
 import MediaObject from 'https://unpkg.com/spux-components/MediaObject.js'
 import Plyr from 'https://jspm.dev/plyr'
+import handleMutation from './js/handlemutation.js'
+import refreshThis from 'https://unpkg.com/spux-modules/refreshthis.js'
+
+globalThis.refreshThis = refreshThis
 
 var arr
 var id = 'data'
@@ -65,20 +69,42 @@ const Node = props => {
   `
 }
 
-render(
-  html`
-    <${Navbar} title="${di.data.map.node.TEXT}" />
-    <div id="myUL"><${Node} node=${di.data.map.node} /></div>
-  `,
-  globalThis.defaults._target
-)
+class App extends Component {
+  constructor (props) {
+    super(props)
+    this.processMutation = this.processMutation.bind(this)
+    this.state = {
+      updates: 0
+    }
+  }
+
+  componentDidMount () {
+    handleMutation(id, this.processMutation)
+  }
+
+  processMutation () {
+    //   this.forceReload()
+    console.log('mutation')
+    this.setState({ updates: this.state.updates + 1 })
+  }
+
+  render () {
+    return html`
+      <div id="myUL">
+        <${Navbar} title="${di.data.map.node.TEXT}" />
+        <${Node} node=${di.data.map.node} title=${this.state.updates} />
+      </div>
+    `
+  }
+}
+
+render(h(App), globalThis.defaults._target)
 
 var videos = [...document.getElementsByTagName('li')].filter(i =>
   i.children[0]?.children[0]?.href.match(/youtube.com/)
 )
 
 setTimeout(() => {
-  if (!videos || videos.length == 0) return
   console.log(MediaObject)
   render(
     html`
