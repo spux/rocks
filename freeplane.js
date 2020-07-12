@@ -89,11 +89,10 @@ class App extends Component {
   }
 
   render () {
-    var videos = [...document.getElementsByTagName('li')].filter(i =>
-      i.children[0]?.children[0]?.href.match(/youtube.com/)
-    )
-
     setTimeout(() => {
+      var videos = [...document.getElementsByTagName('li')].filter(i =>
+        i.children[0]?.children[0]?.href.match(/youtube.com/)
+      )
       console.log(MediaObject)
       render(
         html`
