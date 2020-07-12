@@ -89,6 +89,25 @@ class App extends Component {
   }
 
   render () {
+    var videos = [...document.getElementsByTagName('li')].filter(i =>
+      i.children[0]?.children[0]?.href.match(/youtube.com/)
+    )
+
+    setTimeout(() => {
+      console.log(MediaObject)
+      render(
+        html`
+          <${MediaObject}
+            style="max-width: 854px; height: 480px;"
+            contentUrl="${videos[0].children[0]?.children[0]?.href}"
+          />
+        `,
+        videos[0]
+      )
+
+      globalThis.player = new Plyr('#player', {})
+    }, 500)
+
     return html`
       <div id="myUL">
         <${Navbar} title="${di.data.map.node.TEXT}" />
@@ -99,22 +118,3 @@ class App extends Component {
 }
 
 render(h(App), globalThis.defaults._target)
-
-var videos = [...document.getElementsByTagName('li')].filter(i =>
-  i.children[0]?.children[0]?.href.match(/youtube.com/)
-)
-
-setTimeout(() => {
-  console.log(MediaObject)
-  render(
-    html`
-      <${MediaObject}
-        style="max-width: 854px; height: 480px;"
-        contentUrl="${videos[0].children[0]?.children[0]?.href}"
-      />
-    `,
-    videos[0]
-  )
-
-  globalThis.player = new Plyr('#player', {})
-}, 500)
