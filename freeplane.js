@@ -78,6 +78,7 @@ var videos = [...document.getElementsByTagName('li')].filter(i =>
 )
 
 setTimeout(() => {
+  if (!videos || videos.length == 0) return
   console.log(MediaObject)
   render(
     html`
