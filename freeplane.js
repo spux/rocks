@@ -44,10 +44,10 @@ const NodeText = props => {
   } else {
     var style = ''
     if (props.node && props.node.font && props.node.font.BOLD) {
-      style = 'style="font-weight: bold;"'
+      style = 'font-weight: bold;'
     }
     return html`
-      <span ${style} class="${props.caret ? 'caret' : ''}"
+      <span style=${style} class="${props.caret ? 'caret' : ''}"
         >${props.node.TEXT}</span
       >
     `
