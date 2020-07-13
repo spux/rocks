@@ -32,11 +32,26 @@ document.head.insertAdjacentHTML(
 )
 
 const NodeText = props => {
+  var icon
+  var cdn = 'https://unpkg.com/spux-assets@0.0.2/images/icons/'
+  var extension = '.svg'
+  if (props.node.icon && props.node.icon.BUILTIN) {
+    icon = cdn + props.node.icon.BUILTIN + extension
+  }
+  const Icon = () => {
+    return icon
+      ? html`
+          <img src=${icon} />
+        `
+      : ''
+  }
   if (props.node.LINK) {
     var weblink = props.node.LINK.replace(/\.mm$/, '.html')
     return html`
       <span class="${props.caret ? 'caret' : ''}"
-        ><a style="color: #3B5998; font-weight: bold" href="${weblink}"
+        ><${Icon} /><a
+          style="color: #3B5998; font-weight: bold"
+          href="${weblink}"
           >➥ ${props.node.TEXT}</a
         ></span
       >
