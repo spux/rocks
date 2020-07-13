@@ -63,7 +63,7 @@ const NodeText = props => {
     }
     return html`
       <span style=${style} class="${props.caret ? 'caret' : ''}"
-        >${props.node.TEXT}</span
+        ><${Icon} />${props.node.TEXT}</span
       >
     `
   }
