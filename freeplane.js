@@ -56,6 +56,12 @@ const NodeText = props => {
         ></span
       >
     `
+  } else if (props.node.TEXT.match(/.png$/)) {
+    return html`
+      <span style=${style} class="${props.caret ? 'caret' : ''}"
+        ><img src=${props.node.hook.URI}
+      /></span>
+    `
   } else {
     var style = ''
     if (props.node && props.node.font && props.node.font.BOLD) {
