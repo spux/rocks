@@ -41,7 +41,7 @@ const NodeText = props => {
   const Icon = () => {
     return icon
       ? html`
-          <img src=${icon} />
+          <img height="16" width="16" src=${icon} />
         `
       : ''
   }
