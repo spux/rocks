@@ -125,17 +125,18 @@ class App extends Component {
         i.children[0]?.children[0]?.href?.match(/youtube.com/)
       )
       console.log(MediaObject)
-      render(
-        html`
-          <${MediaObject}
-            style="max-width: 854px; height: 480px;"
-            contentUrl="${videos[0]?.children[0]?.children[0]?.href}"
-          />
-        `,
-        videos[0]
-      )
-
-      globalThis.player = new Plyr('#player', {})
+      if (videos && videos[0]) {
+        render(
+          html`
+            <${MediaObject}
+              style="max-width: 854px; height: 480px;"
+              contentUrl="${videos[0]?.children[0]?.children[0]?.href}"
+            />
+          `,
+          videos[0]
+        )
+        globalThis.player = new Plyr('#player', {})
+      }
     }, 500)
 
     return html`
