@@ -52,9 +52,15 @@ const NodeText = props => {
       !props.node.LINK.split('/')[2]
         ? '#3B5998'
         : 'green'
+    var target =
+      location.origin.split('/')[2] === props.node.LINK.split('/')[2] ||
+      !props.node.LINK.split('/')[2]
+        ? ''
+        : '_blank'
     return html`
       <span class="${props.caret ? 'caret' : ''}"
         ><${Icon} /><a
+          target="${target}"
           style="color: ${color}; font-weight: bold"
           href="${weblink}"
           >➥ ${props.node.TEXT}</a
