@@ -122,14 +122,14 @@ class App extends Component {
   render () {
     setTimeout(() => {
       var videos = [...document.getElementsByTagName('li')].filter(i =>
-        i.children[0]?.children[0]?.href.match(/youtube.com/)
+        i.children[0]?.children[0]?.href?.match(/youtube.com/)
       )
       console.log(MediaObject)
       render(
         html`
           <${MediaObject}
             style="max-width: 854px; height: 480px;"
-            contentUrl="${videos[0].children[0]?.children[0]?.href}"
+            contentUrl="${videos[0]?.children[0]?.children[0]?.href}"
           />
         `,
         videos[0]
