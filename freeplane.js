@@ -57,7 +57,9 @@ const NodeText = props => {
       >
     `
   } else if (
-    props.node.TEXT.match(/.png$/ && props.node.hook && props.node.hook.URI)
+    props.node.TEXT.match(/.png$/) &&
+    props.node.hook &&
+    props.node.hook.URI
   ) {
     return html`
       <span style=${style} class="${props.caret ? 'caret' : ''}"
