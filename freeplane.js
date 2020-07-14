@@ -1,6 +1,6 @@
-import 'https://unpkg.com/dataisland?module'
-import { h, html, render, Component } from 'https://unpkg.com/spux?module'
-import updateThis from 'https://unpkg.com/spux-modules@0.0.4/updatethis.js'
+import 'https://cdn.skypack.dev/dataisland'
+import { h, html, render, Component } from 'https://cdn.skypack.dev/spux'
+import updateThis from 'https://unpkg.com/spux-modules/updatethis.js'
 import Navbar from 'https://unpkg.com/spux-components/Navbar.js'
 import MediaObject from 'https://unpkg.com/spux-components/MediaObject.js'
 import Plyr from 'https://jspm.dev/plyr'
@@ -56,7 +56,9 @@ const NodeText = props => {
         ></span
       >
     `
-  } else if (props.node.TEXT.match(/.png$/)) {
+  } else if (
+    props.node.TEXT.match(/.png$/ && props.node.hook & props.node.hook.URI)
+  ) {
     return html`
       <span style=${style} class="${props.caret ? 'caret' : ''}"
         ><img src=${props.node.hook.URI}
