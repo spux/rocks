@@ -50,8 +50,8 @@ const NodeText = props => {
     var color =
       location.origin.split('/')[2] === props.node.LINK.split('/')[2] ||
       !props.node.LINK.split('/')[2]
-        ? 'green'
-        : '#3B5998'
+        ? '#3B5998'
+        : 'green'
     return html`
       <span class="${props.caret ? 'caret' : ''}"
         ><${Icon} /><a
