@@ -47,10 +47,14 @@ const NodeText = props => {
   }
   if (props.node.LINK) {
     var weblink = props.node.LINK.replace(/\.mm$/, '.html')
+    var color =
+      location.origin.split('/')[2] === props.node.LINK.split('/')[2]
+        ? 'green'
+        : '#3B5998'
     return html`
       <span class="${props.caret ? 'caret' : ''}"
         ><${Icon} /><a
-          style="color: #3B5998; font-weight: bold"
+          style="color: ${color}; font-weight: bold"
           href="${weblink}"
           >➥ ${props.node.TEXT}</a
         ></span
