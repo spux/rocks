@@ -10,7 +10,7 @@
 
   render(
     html`
-      <div id="jsoneditor" style="width: 400px; height: 400px;"></div>
+      <div id="jsoneditor" style="width: 100%; height: 400px;"></div>
     `,
     document.body
   )
