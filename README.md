@@ -7,3 +7,4 @@ List of views for different types
 - grid
 - playlist
 - video
+- icons
