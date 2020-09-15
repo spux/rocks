@@ -180,9 +180,10 @@ class App extends Component {
       }
     }, 500)
 
+    var title = di?.data?.map?.node ? di?.data?.map?.node['@_TEXT'] : 'webmaps'
     return html`
       <div id="myUL">
-        <${Navbar} title="${di?.data?.map?.node['@_TEXT']}" />
+        <${Navbar} title="${title}" />
         <${Node} node=${di.data.map.node} title=${this.state.updates} />
       </div>
     `
