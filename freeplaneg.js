@@ -15,9 +15,10 @@ import 'https://cdn.skypack.dev/gun/lib/open'
 var gun = Gun('wss://melvincarvalho.com:3000/gun')
 var user = gun.user()
 var username = 'test'
+var jsonuri = location.href.substr(0, location.href.lastIndexOf('.')) + '.json'
 var uri = location.href.match(/localhost/)
   ? 'https://melvincarvalho.com/mm/index.json'
-  : location.href
+  : jsonuri
 
 var data
 globalThis.data = data
