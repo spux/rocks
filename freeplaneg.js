@@ -182,7 +182,7 @@ class App extends Component {
 
     return html`
       <div id="myUL">
-        <${Navbar} title="${di?.data?.map?.node?['@_TEXT']}" />
+        <${Navbar} title="${di?.data?.map?.node['@_TEXT']}" />
         <${Node} node=${di.data.map.node} title=${this.state.updates} />
       </div>
     `
