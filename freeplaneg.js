@@ -90,14 +90,14 @@ const NodeText = props => {
           target="${target}"
           style="color: ${color}; font-weight: bold"
           href="${weblink}"
-          >➥ ${props.node.TEXT}</a
+          >➥ ${props.node['@_TEXT']}</a
         ></span
       >
     `
   } else if (
     props.node &&
-    props.node.TEXT &&
-    props.node.TEXT.match(/.png$/) &&
+    props.node['@_TEXT'] &&
+    props.node['@_TEXT'].match(/.png$/) &&
     props.node.hook &&
     props.node.hook.URI
   ) {
@@ -113,7 +113,7 @@ const NodeText = props => {
     }
     return html`
       <span style=${style} class="${props.caret ? 'caret' : ''}"
-        ><${Icon} />${props.node.TEXT || props.node['@_TEXT']}</span
+        ><${Icon} />${props.node['@_TEXT'] || props.node['@_TEXT']}</span
       >
     `
   }
@@ -122,7 +122,7 @@ const NodeText = props => {
 const Node = props => {
   var children = props.node.node ? [].concat(props.node.node) : []
   var caret = !!children.length
-  console.log('TEXT', props.node.TEXT)
+  console.log('TEXT', props.node['@_TEXT'])
   console.log('@_TEXT', props.node['@_TEXT'])
   console.log('children', children)
   return html`
@@ -182,7 +182,7 @@ class App extends Component {
 
     return html`
       <div id="myUL">
-        <${Navbar} title="${di?.data?.map?.node?.TEXT}" />
+        <${Navbar} title="${di?.data?.map?.node?['@_TEXT']}" />
         <${Node} node=${di.data.map.node} title=${this.state.updates} />
       </div>
     `
