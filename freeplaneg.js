@@ -62,8 +62,8 @@ const NodeText = props => {
   var icon
   var cdn = 'https://unpkg.com/spux-assets@0.0.2/images/icons/'
   var extension = '.svg'
-  if (props.node.icon && props.node.icon.BUILTIN) {
-    icon = cdn + props.node.icon.BUILTIN + extension
+  if (props.node.icon && props.node.icon['@_BUILTIN']) {
+    icon = cdn + props.node.icon['@_BUILTIN'] + extension
   }
   const Icon = () => {
     return icon
@@ -97,13 +97,14 @@ const NodeText = props => {
   } else if (
     props.node &&
     props.node['@_TEXT'] &&
+    props.node['@_TEXT'].match &&
     props.node['@_TEXT'].match(/.png$/) &&
     props.node.hook &&
-    props.node.hook.URI
+    props.node.hook['@_URI']
   ) {
     return html`
       <span style=${style} class="${props.caret ? 'caret' : ''}"
-        ><img src=${props.node.hook.URI}
+        ><img src=${props.node.hook['@_URI']}
       /></span>
     `
   } else {
