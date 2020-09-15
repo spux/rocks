@@ -72,16 +72,16 @@ const NodeText = props => {
         `
       : ''
   }
-  if (props.node.LINK) {
-    var weblink = props.node.LINK.replace(/\.mm$/, '.html')
+  if (props.node['@_LINK']) {
+    var weblink = props.node['@_LINK'].replace(/\.mm$/, '.html')
     var color =
-      location.origin.split('/')[2] === props.node.LINK.split('/')[2] ||
-      !props.node.LINK.split('/')[2]
+      location.origin.split('/')[2] === props.node['@_LINK'].split('/')[2] ||
+      !props.node['@_LINK'].split('/')[2]
         ? '#3B5998'
         : 'green'
     var target =
-      location.origin.split('/')[2] === props.node.LINK.split('/')[2] ||
-      !props.node.LINK.split('/')[2]
+      location.origin.split('/')[2] === props.node['@_LINK'].split('/')[2] ||
+      !props.node['@_LINK'].split('/')[2]
         ? ''
         : '_blank'
     return html`
