@@ -90,9 +90,10 @@ const NodeText = props => {
       props.node['@_LINK'].match &&
       props.node['@_LINK'].match(/.png$/)
     ) {
+      var maxHeight = 100
       return html`
         <span style=${style} class="${props.caret ? 'caret' : ''}"
-          ><img src=${props.node['@_LINK']}
+          ><img height="${maxHeight}" src=${props.node['@_LINK']}
         /></span>
       `
     } else {
