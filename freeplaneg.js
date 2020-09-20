@@ -92,7 +92,7 @@ const NodeText = props => {
     ) {
       return html`
         <span style=${style} class="${props.caret ? 'caret' : ''}"
-          ><img src=${props.node.hook['@_LINK']}
+          ><img src=${props.node['@_LINK']}
         /></span>
       `
     } else {
