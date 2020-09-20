@@ -64,7 +64,7 @@ const NodeText = props => {
   var cdn2 = 'https://twemoji.maxcdn.com/v/12.1.4/svg/'
   var extension = '.svg'
   if (props.node.icon && props.node.icon['@_BUILTIN']) {
-    if (props.node.icon['@_BUILTIN'].match('^emoji-')) {
+    if (props.node.icon['@_BUILTIN'].match(/^emoji-/)) {
       icon =
         cdn2 +
         props.node.icon['@_BUILTIN']
@@ -136,7 +136,10 @@ const NodeText = props => {
   } else {
     var style = ''
     if (props.node && props.node.font && props.node.font['@_BOLD']) {
-      style = 'font-weight: bold;'
+      style += `font-weight: bold;`
+    }
+    if (props.node && props.node['@_COLOR']) {
+      style += `color: ${props.node['@_COLOR']};`
     }
     return html`
       <span style=${style} class="${props.caret ? 'caret' : ''}"
