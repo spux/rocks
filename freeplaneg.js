@@ -60,10 +60,21 @@ document.head.insertAdjacentHTML(
 
 const NodeText = props => {
   var icon
-  var cdn = 'https://unpkg.com/spux-assets@0.0.2/images/icons/'
+  var cdn1 = 'https://unpkg.com/spux-assets@0.0.2/images/icons/'
+  var cdn2 = 'https://twemoji.maxcdn.com/v/12.1.4/svg/'
   var extension = '.svg'
   if (props.node.icon && props.node.icon['@_BUILTIN']) {
-    icon = cdn + props.node.icon['@_BUILTIN'] + extension
+    if (props.node.icon['@_BUILTIN'].match('^emoji-')) {
+      icon =
+        cdn2 +
+        props.node.icon['@_BUILTIN']
+          .split('-')
+          .pop()
+          .toLowerCase() +
+        extension
+    } else {
+      icon = cdn1 + props.node.icon['@_BUILTIN'] + extension
+    }
   }
   const Icon = () => {
     return icon
