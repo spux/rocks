@@ -109,7 +109,7 @@ const NodeText = props => {
     `
   } else {
     var style = ''
-    if (props.node && props.node.font && props.node.font.BOLD) {
+    if (props.node && props.node.font && props.node.font['@_BOLD']) {
       style = 'font-weight: bold;'
     }
     return html`
