@@ -135,11 +135,12 @@ const NodeText = props => {
     `
   } else {
     var style = ''
+    var factor = 1.6
     if (props.node && props.node.font && props.node.font['@_BOLD']) {
       style += `font-weight: bold;`
     }
     if (props.node && props.node.font && props.node.font['@_SIZE']) {
-      style += `font-size: ${props.node.font['@_SIZE']};`
+      style += `font-size: ${Math.floor(props.node.font['@_SIZE'] * factor)};`
     }
     if (props.node && props.node['@_COLOR']) {
       style += `color: ${props.node['@_COLOR']};`
