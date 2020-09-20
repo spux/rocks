@@ -84,16 +84,29 @@ const NodeText = props => {
       !props.node['@_LINK'].split('/')[2]
         ? ''
         : '_blank'
-    return html`
-      <span class="${props.caret ? 'caret' : ''}"
-        ><${Icon} /><a
-          target="${target}"
-          style="color: ${color}; font-weight: bold"
-          href="${weblink}"
-          >➥ ${props.node['@_TEXT']}</a
-        ></span
-      >
-    `
+
+    if (
+      props.node['@_LINK'] &&
+      props.node['@_LINK'].match &&
+      props.node['@_LINK'].match(/.png$/)
+    ) {
+      return html`
+        <span style=${style} class="${props.caret ? 'caret' : ''}"
+          ><img src=${props.node.hook['@_LINK']}
+        /></span>
+      `
+    } else {
+      return html`
+        <span class="${props.caret ? 'caret' : ''}"
+          ><${Icon} /><a
+            target="${target}"
+            style="color: ${color}; font-weight: bold"
+            href="${weblink}"
+            >➥ ${props.node['@_TEXT']}</a
+          ></span
+        >
+      `
+    }
   } else if (
     props.node &&
     props.node['@_TEXT'] &&
