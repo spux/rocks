@@ -99,12 +99,13 @@ const NodeText = props => {
     props.node['@_TEXT'] &&
     props.node['@_TEXT'].match &&
     props.node['@_TEXT'].match(/.png$/) &&
-    props.node.hook &&
-    props.node.hook['@_URI']
+    props.node['@_LINK'] &&
+    props.node['@_LINK'].match &&
+    props.node['@_LINK'].match(/.png$/)
   ) {
     return html`
       <span style=${style} class="${props.caret ? 'caret' : ''}"
-        ><img src=${props.node.hook['@_URI']}
+        ><img src=${props.node.hook['@_LINK']}
       /></span>
     `
   } else {
