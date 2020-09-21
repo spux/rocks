@@ -160,7 +160,7 @@ const Node = props => {
   console.log('children', children)
   return html`
     <ul class="active">
-      <li id="${'#' + props.node['@_ID']}">
+      <li id="${props.node['@_ID']}">
         <${NodeText} caret=${caret} node="${props.node}" />
       </li>
       <ul>
@@ -212,6 +212,11 @@ class App extends Component {
         globalThis.player = new Plyr('#player', {})
       }
     }, 500)
+
+    setTimeout(() => {
+      let id = location.hash
+      document.getElementById(id).scrollIntoView()
+    }, 600)
 
     var title = di?.data?.map?.node ? di?.data?.map?.node['@_TEXT'] : 'webmaps'
     return html`
