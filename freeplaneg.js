@@ -160,7 +160,7 @@ const Node = props => {
   console.log('children', children)
   return html`
     <ul class="active">
-      <li id=${props.node.ID}>
+      <li id=${props.node['@_ID']}>
         <${NodeText} caret=${caret} node="${props.node}" />
       </li>
       <ul>
