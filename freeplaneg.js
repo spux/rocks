@@ -85,16 +85,10 @@ const NodeText = props => {
   }
   if (props.node['@_LINK']) {
     var weblink = props.node['@_LINK'].replace(/\.mm$/, '.html')
-    var color =
-      location.origin.split('/')[2] === props.node['@_LINK'].split('/')[2] ||
-      !props.node['@_LINK'].split('/')[2]
-        ? '#3B5998'
-        : 'green'
-    var target =
-      location.origin.split('/')[2] === props.node['@_LINK'].split('/')[2] ||
-      !props.node['@_LINK'].split('/')[2]
-        ? ''
-        : '_blank'
+    var origin = new URL(location.origin).href
+    var linkOrigin = new URL(props.node['@_LINK']).href
+    var color = origin === linkOrigin || !linkOrigin ? '#3B5998' : 'green'
+    var target = origin === linkOrigin || !linkOrigin ? '' : '_blank'
 
     if (
       props.node['@_LINK'] &&
