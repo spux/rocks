@@ -215,7 +215,7 @@ class App extends Component {
 
     setTimeout(() => {
       let id = location.hash
-      document.getElementById(id).scrollIntoView()
+      document.getElementById(location.hash.split('#')[1])?.scrollIntoView()
     }, 600)
 
     var title = di?.data?.map?.node ? di?.data?.map?.node['@_TEXT'] : 'webmaps'
