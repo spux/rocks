@@ -223,4 +223,4 @@ class App extends Component {
   }
 }
 
-// render(h(App), globalThis.defaults._target)
+render(h(App), globalThis.defaults._target)
