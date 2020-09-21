@@ -84,9 +84,14 @@ const NodeText = props => {
       : ''
   }
   if (props.node['@_LINK']) {
+    function absolute (href) {
+      var a = document.createElement('a')
+      a.href = href
+      return new URL(a.href).href
+    }
     var weblink = props.node['@_LINK'].replace(/\.mm$/, '.html')
-    var origin = new URL(location.origin).href
-    var linkOrigin = new URL(props.node['@_LINK']).href
+    var origin = absolute(location.origin)
+    var linkOrigin = absolute(props.node['@_LINK'])
     var color = origin === linkOrigin || !linkOrigin ? '#3B5998' : 'green'
     var target = origin === linkOrigin || !linkOrigin ? '' : '_blank'
 
