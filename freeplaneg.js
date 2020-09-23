@@ -23,6 +23,12 @@ var uri = location.href.match(/localhost/)
 var data
 globalThis.data = data
 
+var decodeHtmlEntity = function (str) {
+  return str.replace(/&#(\d+);/g, function (match, dec) {
+    return String.fromCharCode(dec)
+  })
+}
+
 gun
   .get(username)
   .get(uri)
@@ -113,7 +119,7 @@ const NodeText = props => {
             target="${target}"
             style="color: ${color}; font-weight: bold"
             href="${weblink}"
-            >➥ ${props.node['@_TEXT']}</a
+            >➥ ${decodeHtmlEntity(props.node['@_TEXT'])}</a
           ></span
         >
       `
