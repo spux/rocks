@@ -152,7 +152,7 @@ const NodeText = props => {
     }
     return html`
       <span style=${style} class="${props.caret ? 'caret' : ''}"
-        ><${Icon} />${props.node['@_TEXT'] || props.node['@_TEXT']}</span
+        ><${Icon} />${decodeHtmlEntity(props.node['@_TEXT'])}</span
       >
     `
   }
