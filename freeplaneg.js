@@ -23,10 +23,24 @@ var uri = location.href.match(/localhost/)
 var data
 globalThis.data = data
 
-var decodeHtmlEntity = function (str) {
-  return str.replace(/&#(\d+);/g, function (match, dec) {
-    return String.fromCharCode(dec)
-  })
+/** Used to map HTML entities to characters. */
+const htmlUnescapes = {
+  '&amp;': '&',
+  '&lt;': '<',
+  '&gt;': '>',
+  '&quot;': '"',
+  '&#39;': "'",
+  '&apos;': "'"
+}
+
+/** Used to match HTML entities and HTML characters. */
+const reEscapedHtml = /&(?:amp|lt|gt|quot|#(0+)?39);/g
+const reHasEscapedHtml = RegExp(reEscapedHtml.source)
+
+function unescape (string) {
+  return string && reHasEscapedHtml.test(string)
+    ? string.replace(reEscapedHtml, entity => htmlUnescapes[entity] || "'")
+    : string || ''
 }
 
 gun
@@ -119,7 +133,7 @@ const NodeText = props => {
             target="${target}"
             style="color: ${color}; font-weight: bold"
             href="${weblink}"
-            >➥ ${decodeHtmlEntity(props.node['@_TEXT'])}</a
+            >➥ ${unescape(props.node['@_TEXT'])}</a
           ></span
         >
       `
@@ -152,7 +166,7 @@ const NodeText = props => {
     }
     return html`
       <span style=${style} class="${props.caret ? 'caret' : ''}"
-        ><${Icon} />${decodeHtmlEntity(props.node['@_TEXT'])}</span
+        ><${Icon} />${unescape(props.node['@_TEXT'])}</span
       >
     `
   }
