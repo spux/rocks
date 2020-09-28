@@ -12,7 +12,9 @@ render(
     >
     <hr />
     ${di[id].links.map(i => {
-      return `html <a href=${i.href}>${i.text}</a><br />`
+      return html`
+        <a href="${i.href}">${i.text}</a> | <a href="${i.linke}">JR</a><br />
+      `
     })}
   `,
   document.body
