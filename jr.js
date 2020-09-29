@@ -28,5 +28,5 @@ function renderAll () {
   Prism.highlightAll()
 }
 
-const DELAY = 1000
+const DELAY = 1
 setTimeout(renderAll, DELAY)
