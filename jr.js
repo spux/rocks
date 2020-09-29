@@ -16,7 +16,10 @@ function renderAll () {
   render(
     html`
       <div class="row">
-        <h2>${di.data.title}</h2>
+        <h2>
+          ${di.data.title}
+          <a target="_blank" href="${di.data.canonicalLink || '#'}">➥</a>
+        </h2>
       </div>
       <div class="row">
         <div style="min-width: 500px" class="col 6">
@@ -26,8 +29,6 @@ function renderAll () {
                 <img style="max-width: 500px" src=${di.data.image} />
               `
             : ''}
-
-          <h3>Links</h3>
           ${di[id].links.map(i => {
             var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
             return html`
@@ -37,7 +38,7 @@ function renderAll () {
             `
           })}
           <hr />
-          <p>${di.data.text.replace('\n', '<br/>')}</p>
+          <p>${di.data.text.replace('\n', '')}</p>
           <hr />
           <p>
             ${di.data.publisher} ${di.data.copyright} ${di.data.lang}
