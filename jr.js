@@ -7,7 +7,7 @@ document.head.insertAdjacentHTML(
 
 document.head.insertAdjacentHTML(
   'beforeend',
-  `<link rel="stylesheet" href="https://unpkg.com/spux-components/css/spux.css />`
+  `<link rel="stylesheet" href="https://unpkg.com/spux-components/css/spux.css" />`
 )
 
 var id = 'data'
