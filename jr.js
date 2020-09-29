@@ -20,13 +20,6 @@ function renderAll () {
       </div>
       <div class="row">
         <div class="col 6">
-          <pre><code class="language-json">${JSON.stringify(
-            di.data,
-            null,
-            2
-          )}</code></pre>
-        </div>
-        <div class="col 6">
           <p>
             ${di.data.publisher} ${di.data.copyright} ${di.data.lang}
             ${di.data.date}
@@ -42,6 +35,13 @@ function renderAll () {
               <br />
             `
           })}
+        </div>
+        <div class="col 6">
+          <pre><code class="language-json">${JSON.stringify(
+            di.data,
+            null,
+            2
+          )}</code></pre>
         </div>
       </div>
     `,
