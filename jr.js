@@ -19,7 +19,7 @@ function renderAll () {
         <h2>${di.data.title}</h2>
       </div>
       <div class="row">
-        <div class="col 6">
+        <div style="min-width: 500px" class="col 6">
           <p>
             ${di.data.publisher} ${di.data.copyright} ${di.data.lang}
             ${di.data.date}
