@@ -20,7 +20,13 @@ function renderAll () {
       </div>
       <div class="row">
         <div style="min-width: 500px" class="col 6">
-          <p>${di.data.description}</p>
+          <div>${di.data.description}</div>
+          ${di.data.image
+            ? html`
+                <img src=${di.data.image} />
+              `
+            : ''}
+
           <h3>Links</h3>
           ${di[id].links.map(i => {
             var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
