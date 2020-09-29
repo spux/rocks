@@ -23,7 +23,7 @@ function renderAll () {
           <div>${di.data.description}</div>
           ${di.data.image
             ? html`
-                <img src=${di.data.image} />
+                <img style="max-width: 500px" src=${di.data.image} />
               `
             : ''}
 
