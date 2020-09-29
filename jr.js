@@ -25,6 +25,7 @@ function renderAll () {
     `,
     document.body
   )
+  Prism.highlightAll()
 }
 
 const DELAY = 1000
