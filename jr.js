@@ -38,7 +38,7 @@ function renderAll () {
             `
           })}
           <hr />
-          <p>${di.data.text.replace('\n', '')}</p>
+          <p>${html([di.data.text.replace('\n', '<br />')])}</p>
           <hr />
           <p>
             ${di.data.publisher} ${di.data.copyright} ${di.data.lang}
