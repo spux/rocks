@@ -20,14 +20,7 @@ function renderAll () {
       </div>
       <div class="row">
         <div style="min-width: 500px" class="col 6">
-          <p>
-            ${di.data.publisher} ${di.data.copyright} ${di.data.lang}
-            ${di.data.date}
-          </p>
           <p>${di.data.description}</p>
-          <hr />
-          <p>${di.data.text.replace('\n', '<br/>')}</p>
-
           <h3>Links</h3>
           ${di[id].links.map(i => {
             return html`
@@ -35,6 +28,13 @@ function renderAll () {
               <br />
             `
           })}
+          <hr />
+          <p>${di.data.text.replace('\n', '<br/>')}</p>
+
+          <p>
+            ${di.data.publisher} ${di.data.copyright} ${di.data.lang}
+            ${di.data.date}
+          </p>
         </div>
         <div class="col 6">
           <pre><code class="language-json">${JSON.stringify(
