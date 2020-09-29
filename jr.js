@@ -23,7 +23,7 @@ function renderAll () {
           <p>${di.data.description}</p>
           <h3>Links</h3>
           ${di[id].links.map(i => {
-            var itext = html([i.text])
+            var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
             return html`
               <a href="${i.link}">➥</a> |
               <a href="${i.href}">${itext}</a>
