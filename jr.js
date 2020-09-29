@@ -25,7 +25,11 @@ function renderAll () {
           ${di[id].links.map(i => {
             return html`
               <a href="${i.link}">➥</a> |
-              <a href="${i.href}">${i.text.substring(0, 60)}</a>
+              <a href="${i.href}"
+                >${html`
+                  ${i.text}
+                `}</a
+              >
               <br />
             `
           })}
