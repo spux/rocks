@@ -2,12 +2,12 @@ import { h, html, render, Component } from 'https://cdn.skypack.dev/spux'
 import 'https://unpkg.com/dior'
 document.head.insertAdjacentHTML(
   'beforeend',
-  `<link rel="stylesheet" href="https://unpkg.com/spux-components@0.0.6/css/spux.css" />`
+  `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism.min.css" />`
 )
 
 document.head.insertAdjacentHTML(
   'beforeend',
-  `<link rel="stylesheet" href="https://cdn.skypack.dev/spux-components/css/spux.css" />`
+  `<link rel="stylesheet" href="https://unpkg.com/spux-components@0.0.6/css/spux.css" />`
 )
 
 var id = 'data'
