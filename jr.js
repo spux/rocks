@@ -16,6 +16,7 @@ function renderAll () {
         2
       )}</code></pre>
       <hr />
+      <h3>Links</h3>
       ${di[id].links.map(i => {
         return html`
           <a href="${i.link}">➥</a> | <a href="${i.href}">${i.text}</a> <br />
@@ -26,4 +27,5 @@ function renderAll () {
   )
 }
 
-setTimeout(renderAll, 500)
+const DELAY = 1000
+setTimeout(renderAll, DELAY)
