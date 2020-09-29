@@ -1,15 +1,19 @@
-import 'https://unpkg.com/dataisland?module'
-import { h, html, render } from 'https://unpkg.com/spux?module'
+import { h, html, render, Component } from 'https://cdn.skypack.dev/spux'
+import 'https://unpkg.com/dior'
+document.head.insertAdjacentHTML(
+  'beforeend',
+  `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism.min.css" />`
+)
 
 var id = 'data'
-var desc = JSON.stringify(di[id], null, 2)
 
 render(
   html`
-    <pre>
-        ${desc}
-    </pre
-    >
+    <pre><code class="language-json">${JSON.stringify(
+      di.data,
+      null,
+      2
+    )}</code></pre>
     <hr />
     ${di[id].links.map(i => {
       return html`
