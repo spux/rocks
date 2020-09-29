@@ -24,7 +24,8 @@ function renderAll () {
           <h3>Links</h3>
           ${di[id].links.map(i => {
             return html`
-              <a href="${i.link}">➥</a> | <a href="${i.href}">${i.text}</a>
+              <a href="${i.link}">➥</a> |
+              <a href="${i.href}">${i.text.substring(0, 50)}</a>
               <br />
             `
           })}
