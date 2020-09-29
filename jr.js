@@ -10,6 +10,9 @@ var id = 'data'
 function renderAll () {
   render(
     html`
+      <h2>${di.data.title}</h2>
+      <p>${di.data.description}</p>
+      <hr />
       <pre><code class="language-json">${JSON.stringify(
         di.data,
         null,
