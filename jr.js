@@ -50,7 +50,7 @@ function renderAll () {
                 <img style="max-width: 500px" src=${spux.image} />
               `
             : ''}
-          ${spux.links.filter(i => ()).map(i => {
+          ${spux.links.map(i => {
             var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
             return html`
               <a href="${i.link}">➥</a> |
