@@ -29,6 +29,7 @@ globalThis.spux = {
   ...qs
 }
 spux.links = spux.links || []
+spux.text = spux.text || ''
 
 // RENDER
 function renderAll () {
