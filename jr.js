@@ -30,7 +30,7 @@ globalThis.spux = {
 }
 spux.links = spux.links || []
 spux.text = spux.text || ''
-if (spux.links.length === 0 && spux.results.length) {
+if (spux.links.length === 0 && spux.results && spux.results.length) {
   spux.links = spux.results.map(i => {
     return { url: i.url, text: i.title, link: 'http://json.rocks?uri=' + i.url }
   })
