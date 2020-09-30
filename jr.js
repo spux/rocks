@@ -35,6 +35,7 @@ if (spux.links.length === 0 && spux.results && spux.results.length) {
     return { url: i.url, text: i.title, link: 'http://json.rocks?uri=' + i.url }
   })
 }
+spux.title = spux.title || spux.query
 
 // RENDER
 function renderAll () {
