@@ -30,6 +30,9 @@ globalThis.spux = {
 }
 spux.links = spux.links || []
 spux.text = spux.text || ''
+if (spux.links.length === 0 && spux.results.length) {
+  spux.links = spux.results.map(i => i.url)
+}
 
 // RENDER
 function renderAll () {
