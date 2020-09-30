@@ -35,21 +35,21 @@ function renderAll () {
     html`
       <div class="row">
         <h2>
-          ${di.data.title}
-          <a target="_blank" href="${di.data.canonicalLink || spux.uri || '#'}"
+          ${spux.title}
+          <a target="_blank" href="${spux.canonicalLink || spux.uri || '#'}"
             >➥</a
           >
         </h2>
       </div>
       <div class="row">
         <div style="min-width: 500px" class="col 6">
-          <div>${di.data.description}</div>
-          ${di.data.image
+          <div>${spux.description}</div>
+          ${spux.image
             ? html`
-                <img style="max-width: 500px" src=${di.data.image} />
+                <img style="max-width: 500px" src=${spux.image} />
               `
             : ''}
-          ${di[id].links.map(i => {
+          ${spux.links.map(i => {
             var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
             return html`
               <a href="${i.link}">➥</a> |
@@ -58,11 +58,10 @@ function renderAll () {
             `
           })}
           <hr />
-          <p>${html([di.data.text.replace('\n', '<br />')])}</p>
+          <p>${html([spux.text.replace('\n', '<br />')])}</p>
           <hr />
           <p>
-            ${di.data.publisher} ${di.data.copyright} ${di.data.lang}
-            ${di.data.date}
+            ${spux.publisher} ${spux.copyright} ${spux.lang} ${spux.date}
           </p>
         </div>
         <div class="col 6">
