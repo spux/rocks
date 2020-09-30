@@ -1,5 +1,8 @@
+// IMPORTS
 import { h, html, render, Component } from 'https://cdn.skypack.dev/spux'
 import 'https://unpkg.com/dior'
+
+// CSS
 document.head.insertAdjacentHTML(
   'beforeend',
   `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism.min.css" />`
@@ -10,15 +13,32 @@ document.head.insertAdjacentHTML(
   `<link rel="stylesheet" href="https://unpkg.com/spux-components@0.0.6/css/spux.css" />`
 )
 
-var id = 'data'
+// defaults
+globalThis.defaults = {
+  '@id': ''
+}
 
+// init
+var id = 'data'
+globalThis.qs = Object.fromEntries(
+  new URLSearchParams(document.location.search)
+)
+globalThis.spux = {
+  ...defaults,
+  ...di[id],
+  ...qs
+}
+
+// RENDER
 function renderAll () {
   render(
     html`
       <div class="row">
         <h2>
           ${di.data.title}
-          <a target="_blank" href="${di.data.canonicalLink || '#'}">➥</a>
+          <a target="_blank" href="${di.data.canonicalLink || spux.uri || '#'}"
+            >➥</a
+          >
         </h2>
       </div>
       <div class="row">
@@ -59,5 +79,6 @@ function renderAll () {
   Prism.highlightAll()
 }
 
-const DELAY = 1
+// MAIN
+const DELAY = 0
 setTimeout(renderAll, DELAY)
