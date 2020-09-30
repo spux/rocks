@@ -28,6 +28,7 @@ globalThis.spux = {
   ...di[id],
   ...qs
 }
+spux.links = spux.links || []
 
 // RENDER
 function renderAll () {
@@ -49,7 +50,7 @@ function renderAll () {
                 <img style="max-width: 500px" src=${spux.image} />
               `
             : ''}
-          ${spux.links.map(i => {
+          ${spux.links.filter(i => ()).map(i => {
             var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
             return html`
               <a href="${i.link}">➥</a> |
