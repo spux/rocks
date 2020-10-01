@@ -43,7 +43,7 @@ function renderAll () {
     html`
       <div class="row">
         <h2>
-          ${spux.title}
+          <img src=${spux.logo} /> ${spux.title}
           <a target="_blank" href="${spux.canonicalLink || spux.uri || '#'}"
             >➥</a
           >
