@@ -71,10 +71,11 @@ function renderAll () {
             .map(i => {
               var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
               return html`
-                <a href="${i.link}">➥</a> |
+                <a href="${new URL(i.href, spux.url).href}">➥</a> |
                 <a
                   target="_blank"
-                  href="${new URL(spux.url, location.href).href}"
+                  href="${location.origin}/?uri=${new URL(i.href, spux.url)
+                    .href}"
                   >${itext}</a
                 >
                 <br />
