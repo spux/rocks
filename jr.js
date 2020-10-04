@@ -68,6 +68,12 @@ function renderAll () {
             : ''}
           ${spux.links
             .filter(i => i.text)
+            .filter(i =>
+              i.text
+                .replace(' ', '')
+                .replace('\n', '')
+                .replace('\t', '')
+            )
             .filter(i => i.href)
             .map(i => {
               var href
@@ -76,6 +82,7 @@ function renderAll () {
               } catch (error) {
                 console.log(error)
               }
+
               var itext = html([
                 i.text
                   .replace(/(<img[^>]*?) *\/?>/g, '$1 />')
