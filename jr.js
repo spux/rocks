@@ -70,7 +70,7 @@ function renderAll () {
             var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
             return html`
               <a href="${i.link}">➥</a> |
-              <a href="${i.href}">${itext}</a>
+              <a href="${new URL(i.href, location.href).href}">${itext}</a>
               <br />
             `
           })}
