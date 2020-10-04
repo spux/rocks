@@ -66,16 +66,20 @@ function renderAll () {
                 <img style="max-width: 500px" src=${spux.image} />
               `
             : ''}
-          ${spux.links.map(i => {
-            var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
-            return html`
-              <a href="${i.link}">➥</a> |
-              <a target="_blank" href="${new URL(spux.url, location.href).href}"
-                >${itext}</a
-              >
-              <br />
-            `
-          })}
+          ${spux.links
+            .filter(i => i.text)
+            .map(i => {
+              var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
+              return html`
+                <a href="${i.link}">➥</a> |
+                <a
+                  target="_blank"
+                  href="${new URL(spux.url, location.href).href}"
+                  >${itext}</a
+                >
+                <br />
+              `
+            })}
           <hr />
           <p>${html([spux.text.replace('\n', '<br />')])}</p>
           <hr />
