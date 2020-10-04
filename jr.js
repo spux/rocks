@@ -68,6 +68,7 @@ function renderAll () {
             : ''}
           ${spux.links
             .filter(i => i.text)
+            .filter(i => i.href)
             .map(i => {
               var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
               return html`
