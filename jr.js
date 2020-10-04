@@ -43,12 +43,6 @@ spux.title = spux.title || spux.query
 
 // RENDER
 function renderAll () {
-  var href
-  try {
-    href = new URL(i.href, spux.url).href
-  } catch (error) {
-    console.log(error)
-  }
   render(
     html`
       <div class="row">
@@ -76,6 +70,12 @@ function renderAll () {
             .filter(i => i.text)
             .filter(i => i.href)
             .map(i => {
+              var href
+              try {
+                href = new URL(i.href, spux.url).href
+              } catch (error) {
+                console.log(error)
+              }
               var itext = html([
                 i.text
                   .replace(/(<img[^>]*?) *\/?>/g, '$1 />')
