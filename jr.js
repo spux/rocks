@@ -33,7 +33,7 @@ spux.text = spux.text || ''
 if (spux.links.length === 0 && spux.results && spux.results.length) {
   spux.links = spux.results.map(i => {
     return {
-      url: i.url,
+      href: i.url,
       text: i.title,
       link: 'https://json.rocks?uri=' + i.url
     }
