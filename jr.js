@@ -70,9 +70,9 @@ function renderAll () {
             .filter(i => i.text)
             .filter(i =>
               i.text
-                .replace(' ', '')
-                .replace('\n', '')
-                .replace('\t', '')
+                .replace(/ /g, '')
+                .replace(/\n/g, '')
+                .replace(/\t/g, '')
             )
             .filter(i => i.href)
             .map(i => {
