@@ -43,8 +43,9 @@ spux.title = spux.title || spux.query
 
 // RENDER
 function renderAll () {
+  var href
   try {
-    var href = new URL(i.href, spux.url).href
+    href = new URL(i.href, spux.url).href
   } catch (error) {
     console.log(error)
   }
