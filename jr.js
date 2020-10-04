@@ -1,5 +1,5 @@
 // IMPORTS
-import { h, html, render, Component } from 'https://cdn.skypack.dev/spux'
+import { html, render } from 'https://cdn.skypack.dev/spux'
 import 'https://unpkg.com/dior'
 
 // CSS
