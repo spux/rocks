@@ -43,6 +43,11 @@ spux.title = spux.title || spux.query
 
 // RENDER
 function renderAll () {
+  try {
+    var href = new URL(i.href, spux.url).href
+  } catch (error) {
+    console.log(error)
+  }
   render(
     html`
       <div class="row">
@@ -77,15 +82,9 @@ function renderAll () {
               ])
 
               return html`
-                <a target="_blank" href="${new URL(i.href, spux.url).href}"
-                  >➥</a
-                >
+                <a target="_blank" href="${href}">➥</a>
                 |
-                <a
-                  href="${location.origin}/?uri=${new URL(i.href, spux.url)
-                    .href}"
-                  >${itext}</a
-                >
+                <a href="${location.origin}/?uri=${href}">${itext}</a>
                 <br />
               `
             })}
