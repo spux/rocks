@@ -70,7 +70,12 @@ function renderAll () {
             .filter(i => i.text)
             .filter(i => i.href)
             .map(i => {
-              var itext = html([i.text.replace(/(<img[^>]*?) *\/?>/g, '$1 />')])
+              var itext = html([
+                i.text
+                  .replace(/(<img[^>]*?) *\/?>/g, '$1 />')
+                  .replace('data-src', 'src')
+              ])
+
               return html`
                 <a target="_blank" href="${new URL(i.href, spux.url).href}"
                   >➥</a
