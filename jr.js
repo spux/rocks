@@ -59,11 +59,11 @@ function renderAll () {
         </h2>
       </div>
       <div style="display: flex; align-items: flex-start;" class="row">
-        <div style="min-width: 500px" class="col 6">
+        <div style="min-width: 500px; margin: 1%;" class="col 6">
           <div>${spux.description}</div>
           ${spux.image
             ? html`
-                <img style="max-width: 500px; margin: 1%;" src=${spux.image} />
+                <img style="max-width: 500px;" src=${spux.image} />
               `
             : ''}
           ${spux.links
