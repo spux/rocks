@@ -63,7 +63,7 @@ function renderAll () {
           <div>${spux.description}</div>
           ${spux.image
             ? html`
-                <img style="max-width: 500px" src=${spux.image} />
+                <img style="max-width: 500px; margin: 1%;" src=${spux.image} />
               `
             : ''}
           ${spux.links
