@@ -58,7 +58,7 @@ function renderAll () {
           >
         </h2>
       </div>
-      <div style="display: flex: align-items: flex-start" class="row">
+      <div style="display: flex; align-items: flex-start;" class="row">
         <div style="min-width: 500px" class="col 6">
           <div>${spux.description}</div>
           ${spux.image
