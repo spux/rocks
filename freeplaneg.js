@@ -9,9 +9,9 @@ import handleMutation from 'https://unpkg.com/spux-modules/handlemutation.js'
 import refreshThis from 'https://unpkg.com/spux-modules/refreshthis.js'
 //import 'https://cdn.skypack.dev/gun/gun'
 //import 'https://spux.net/gun'
-import 'https://cdn.skypack.dev/gun/sea'
-import 'https://cdn.skypack.dev/gun/lib/webrtc'
-import 'https://cdn.skypack.dev/gun/lib/open'
+// import 'https://cdn.skypack.dev/gun/sea'
+// import 'https://cdn.skypack.dev/gun/lib/webrtc'
+// import 'https://cdn.skypack.dev/gun/lib/open'
 
 var updatesUri = 'wss://melvincarvalho.com:3000/gun'
 if (location.href.match(/localhost/)) {
