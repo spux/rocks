@@ -13,7 +13,13 @@ import 'https://cdn.skypack.dev/gun/sea'
 import 'https://cdn.skypack.dev/gun/lib/webrtc'
 import 'https://cdn.skypack.dev/gun/lib/open'
 
-var gun = Gun('wss://melvincarvalho.com:3000/gun')
+var updatesUri = 'wss://melvincarvalho.com:3000/gun'
+if (location.href.match(/localhost/)) {
+  updatesUri = 'ws://localhost:8765/gun'
+}
+
+var gun = Gun(updatesUri)
+
 var user = gun.user()
 var username = 'test'
 var jsonuri = location.href.substr(0, location.href.lastIndexOf('.')) + '.json'
