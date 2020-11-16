@@ -1,7 +1,7 @@
 // imports
 import 'https://cdn.skypack.dev/dataisland'
 import { h, html, render, Component } from 'https://cdn.skypack.dev/spux'
-import updateThis from 'https://unpkg.com/spux-modules/updatethis.js'
+// import updateThis from 'https://unpkg.com/spux-modules/updatethis.js'
 import Navbar from 'https://unpkg.com/spux-components/Navbar.js'
 import MediaObject from 'https://unpkg.com/spux-components/MediaObject.js'
 import Plyr from 'https://jspm.dev/plyr'
